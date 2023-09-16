@@ -4,6 +4,6 @@ import {PORT} from "./config.js";
 const app = express();
 
 app.listen(PORT, () => {
-    console.log("App is listening on port:", {PORT});
+    console.log("App is listening on port: hi=", {PORT});
 });
 
