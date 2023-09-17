@@ -1,13 +1,19 @@
-import express from "express";
+import express, { response } from "express";
 import {PORT, mongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
+import booksRoute from './routes/booksRoute.js';
 
 const app = express();
+
+//middleware for parsing reqest body in JSON
+app.use(express);
 
 app.get('/', (request, response) => {
     console.log(request);
     return response.status(234).send("Welcome to the MERN stack.");
 }); 
+
+app.use('/books', booksRoute);
 
 mongoose
     .connect(mongoDBURL)
